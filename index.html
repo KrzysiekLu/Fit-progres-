@@ -43,19 +43,22 @@
     }
 
     function fetchData() {
-      gapi.client.fitness.users.dataSources.datasets.get({
-        userId: 'me',
-        dataSourceId: 'derived:com.google.step_count.delta:com.google.android.gms:estimated_steps',
-        datasetId: '0-1'
-      }).then(function(response) {
-        console.log(response);
-        const data = response.result;
-        const dataElement = document.getElementById('data');
-        dataElement.innerText = JSON.stringify(data, null, 2);
-      }, function(reason) {
-        console.error('Error: ' + reason.result.error.message);
-      });
-    }
+  gapi.client.fitness.users.dataSources.datasets.get({
+    userId: 'me',
+    dataSourceId: 'derived:com.google.step_count.delta:com.google.android.gms:estimated_steps',
+    datasetId: '0-1'
+  }).then(function(response) {
+    console.log(response);
+    const data = response.result;
+    const dataElement = document.getElementById('data');
+    dataElement.innerText = JSON.stringify(data, null, 2);
+  }).catch(function(error) {
+    console.error('Error: ' + error.result.error.message);
+  });
+}
+
+    
+    
   </script>
   <script src="https://apis.google.com/js/api.js?onload=handleClientLoad"></script>
 </body>
