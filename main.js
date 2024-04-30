@@ -1,6 +1,6 @@
 // Pobierz dane kroków z Google Fit API
 async function fetchFitData() {
-    const accessToken = 'YOUR_ACCESS_TOKEN'; // Tutaj należy wstawić token dostępowy
+    const accessToken = '995752855987-6tlebufls2leskh6vpnqn2gmfp9sl8fk.apps.googleusercontent.com'; // Tutaj należy wstawić token dostępowy
   
     try {
       const response = await fetch('https://www.googleapis.com/fitness/v1/users/me/dataSources/derived:com.google.step_count.delta:com.google.android.gms:estimated_steps/datasets/0-1000000000000', {
