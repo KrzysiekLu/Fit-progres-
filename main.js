@@ -1,26 +1,29 @@
-// Pobierz dane kroków z Google Fit API
-async function fetchFitData() {
-    const accessToken = '995752855987-6tlebufls2leskh6vpnqn2gmfp9sl8fk.apps.googleusercontent.com'; // Tutaj należy wstawić token dostępowy
-  
-    try {
-      const response = await fetch('https://www.googleapis.com/fitness/v1/users/me/dataSources/derived:com.google.step_count.delta:com.google.android.gms:estimated_steps/datasets/0-1000000000000', {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json'
-        }
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Dane kroków:', data);
-      } else {
-        console.error('Wystąpił błąd podczas pobierania danych:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Wystąpił błąd podczas pobierania danych:', error);
-    }
-  }
-  
-  fetchFitData();
-  
+const CLIENT_ID = 'TUTAJ_WSTAW_SWÓJ_IDENTYFIKATOR_KLIENTA';
+
+// Funkcja do autoryzacji użytkownika
+function authenticate() {
+  return gapi.auth2.getAuthInstance()
+    .signIn({ scope: 'https://www.googleapis.com/auth/fitness.activity.read' })
+    .then(function() { console.log('Uwierzytelniono!'); })
+    .catch(function(error) { console.error('Błąd uwierzytelniania:', error); });
+}
+
+// Funkcja do inicjalizacji klienta Google API
+function initClient() {
+  gapi.client.init({
+    'apiKey': 'YOUR_API_KEY',
+    'clientId': CLIENT_ID,
+    'scope': 'https://www.googleapis.com/auth/fitness.activity.read',
+    'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/fitness/v1/rest']
+  }).then(function () {
+    console.log('Klient Google API zainicjalizowany!');
+    authenticate(); // Autoryzuj użytkownika po inicjalizacji klienta
+  }).catch(function(error) {
+    console.error('Błąd inicjalizacji klienta Google API:', error);
+  });
+}
+
+// Funkcja do załadowania klienta Google API
+function loadClient() {
+  gapi.load('client:auth2', initClient);
+}
