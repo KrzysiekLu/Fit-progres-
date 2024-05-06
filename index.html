@@ -7,7 +7,7 @@
         // Initializes the client with the API key and the Translate API.
         gapi.client.init({
           'apiKey': 'AIzaSyCP1efJckf3HH56JERuA1ejMQdVdf4ofmU',
-          'discoveryDocs': ['https://www.googleapis.com/auth/fitness.activity.read'],
+          'discoveryDocs': ['https://www.googleapis.com/fitness/v1/users/me/dataSources'],
         }).then(function() {
           // Executes an API request, and returns a Promise.
           // The method name `language.translations.list` comes from the API discovery.
