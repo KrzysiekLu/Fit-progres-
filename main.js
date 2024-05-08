@@ -1,5 +1,5 @@
 const CLIENT_ID = '995752855987-6tlebufls2leskh6vpnqn2gmfp9sl8fk.apps.googleusercontent.com';
-const API_KEY = 'YOUR_API_KEY';
+const API_KEY = 'AIzaSyCP1efJckf3HH56JERuA1ejMQdVdf4ofmU';
 
 // Funkcja do autoryzacji użytkownika
 function authenticate() {
