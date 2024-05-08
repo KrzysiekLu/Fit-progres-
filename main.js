@@ -27,3 +27,4 @@ function initClient() {
 function loadClient() {
   gapi.load('client:auth2', initClient);
 }
+console.log('test');
