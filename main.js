@@ -28,3 +28,6 @@ function initClient() {
 function loadClient() {
   gapi.load('client:auth2', initClient);
 }
+document.addEventListener('DOMContentLoaded', function() {
+  loadClient(); // Wywołaj funkcję loadClient() po załadowaniu strony
+});
