@@ -1,4 +1,4 @@
-const CLIENT_ID = '995752855987-6tlebufls2leskh6vpnqn2gmfp9sl8fk.apps.googleusercontent.com';
+const CLIENT_ID = 'x';
 
 // Funkcja do autoryzacji użytkownika
 function authenticate() {
