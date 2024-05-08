@@ -1,4 +1,5 @@
-const CLIENT_ID = 'x';
+const CLIENT_ID = '995752855987-6tlebufls2leskh6vpnqn2gmfp9sl8fk.apps.googleusercontent.com';
+const API_KEY = 'YOUR_API_KEY';
 
 // Funkcja do autoryzacji użytkownika
 function authenticate() {
@@ -11,7 +12,7 @@ function authenticate() {
 // Funkcja do inicjalizacji klienta Google API
 function initClient() {
   gapi.client.init({
-    'apiKey': YOUR_API_KEY,
+    'apiKey': API_KEY,
     'clientId': CLIENT_ID,
     'scope': 'https://www.googleapis.com/auth/fitness.activity.read',
     'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/fitness/v1/rest']
@@ -27,4 +28,3 @@ function initClient() {
 function loadClient() {
   gapi.load('client:auth2', initClient);
 }
-console.log('test');
